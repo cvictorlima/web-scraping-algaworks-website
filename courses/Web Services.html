@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://app.algaworks.com/meus-cursos/workshop-rest-spring -->
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" xmlns:site="http://site.algaworks.com"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Curso Online Começando com Web Services RESTful e Spring - AlgaWorks</title>
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<meta name="referrer" content="unsafe-url">
+
+    <meta property="og:site_name" content="AlgaWorks">
+    <meta property="fb:app_id" content="208424089199655">
+
+    
+
+    <link rel="shortcut icon" href="https://app.algaworks.com/images/favicon-7002162ed4eb5e38fcdc70c37ddcaa82.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./Web Services_files/magula-6a66369d1ba8339c89d9346584a5cfca.css">
+	<link rel="stylesheet" href="./Web Services_files/main-4101bba149707c6d0e756467958dd21d.css">
+
+    <link rel="preconnect" href="https://assets.algaworks.com/portal/">
+    <link rel="preconnect" href="https://www.gravatar.com/">
+
+    <link rel="preconnect" href="https://www.googletagmanager.com/">
+<link rel="preconnect" href="https://connect.facebook.net/">
+<link rel="preconnect" href="https://www.facebook.com/">
+<link rel="preconnect" href="https://xb222.infusionsoft.com/">
+<link rel="preconnect" href="https://snap.licdn.com/">
+<link rel="preconnect" href="https://px.ads.linkedin.com/">
+<link rel="preconnect" href="https://static.olark.com/">
+<link rel="preconnect" href="https://nrpc.olark.com/">
+<link rel="preconnect" href="https://www.google-analytics.com/">
+<link rel="preconnect" href="https://www.googleadservices.com/">
+<link rel="preconnect" href="https://www.google.com/">
+<link rel="preconnect" href="https://www.google.com.br/">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="text/javascript" async="" src="./Web Services_files/insight.min.js.download"></script><script src="./Web Services_files/761143347253929" async=""></script><script async="" src="./Web Services_files/fbevents.js.download"></script><script async="" src="./Web Services_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-3744390-3'); // Google Analytics
+  gtag('config', 'AW-1064837204'); // Google Ads
+</script><script data-dapp-detection="">!function(){let e=!1;function n(){if(!e){const n=document.createElement("meta");n.name="dapp-detected",document.head.appendChild(n),e=!0}}if(window.hasOwnProperty("ethereum")){if(window.__disableDappDetectionInsertion=!0,void 0===window.ethereum)return;n()}else{var t=window.ethereum;Object.defineProperty(window,"ethereum",{configurable:!0,enumerable:!1,set:function(e){window.__disableDappDetectionInsertion||n(),t=e},get:function(){if(!window.__disableDappDetectionInsertion){const e=arguments.callee;e&&e.caller&&e.caller.toString&&-1!==e.caller.toString().indexOf("getOwnPropertyNames")||n()}return t}})}}();</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '761143347253929');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=761143347253929&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<style>@-webkit-keyframes swal2-show{0%{-webkit-transform:scale(.7);transform:scale(.7)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}100%{-webkit-transform:scale(1);transform:scale(1)}}@keyframes swal2-show{0%{-webkit-transform:scale(.7);transform:scale(.7)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}100%{-webkit-transform:scale(1);transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{-webkit-transform:scale(1);transform:scale(1);opacity:1}100%{-webkit-transform:scale(.5);transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{-webkit-transform:scale(1);transform:scale(1);opacity:1}100%{-webkit-transform:scale(.5);transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.875em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.875em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}100%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}100%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}50%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}80%{margin-top:-.375em;-webkit-transform:scale(1.15);transform:scale(1.15)}100%{margin-top:0;-webkit-transform:scale(1);transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}50%{margin-top:1.625em;-webkit-transform:scale(.4);transform:scale(.4);opacity:0}80%{margin-top:-.375em;-webkit-transform:scale(1.15);transform:scale(1.15)}100%{margin-top:0;-webkit-transform:scale(1);transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}100%{-webkit-transform:rotateX(0);transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}100%{-webkit-transform:rotateX(0);transform:rotateX(0);opacity:1}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-shown{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{flex-direction:column;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}.swal2-popup.swal2-toast{flex-direction:row;align-items:center;width:auto;padding:.625em;box-shadow:0 0 .625em #d9d9d9;overflow-y:hidden}.swal2-popup.swal2-toast .swal2-header{flex-direction:row}.swal2-popup.swal2-toast .swal2-title{flex-grow:1;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:initial;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{justify-content:flex-start;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon-text{font-size:2em;font-weight:700;line-height:1em}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{height:auto;margin:0 .3125em}.swal2-popup.swal2-toast .swal2-styled{margin:0 .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 .0625em #fff,0 0 0 .125em rgba(50,100,150,.4)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:2em;height:2.8125em;-webkit-transform:rotate(45deg);transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.25em;left:-.9375em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:2em 2em;transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;-webkit-transform-origin:0 2em;transform-origin:0 2em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:showSweetToast .5s;animation:showSweetToast .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:hideSweetToast .2s forwards;animation:hideSweetToast .2s forwards}.swal2-popup.swal2-toast .swal2-animate-success-icon .swal2-success-line-tip{-webkit-animation:animate-toast-success-tip .75s;animation:animate-toast-success-tip .75s}.swal2-popup.swal2-toast .swal2-animate-success-icon .swal2-success-line-long{-webkit-animation:animate-toast-success-long .75s;animation:animate-toast-success-long .75s}@-webkit-keyframes showSweetToast{0%{-webkit-transform:translateY(-.625em) rotateZ(2deg);transform:translateY(-.625em) rotateZ(2deg);opacity:0}33%{-webkit-transform:translateY(0) rotateZ(-2deg);transform:translateY(0) rotateZ(-2deg);opacity:.5}66%{-webkit-transform:translateY(.3125em) rotateZ(2deg);transform:translateY(.3125em) rotateZ(2deg);opacity:.7}100%{-webkit-transform:translateY(0) rotateZ(0);transform:translateY(0) rotateZ(0);opacity:1}}@keyframes showSweetToast{0%{-webkit-transform:translateY(-.625em) rotateZ(2deg);transform:translateY(-.625em) rotateZ(2deg);opacity:0}33%{-webkit-transform:translateY(0) rotateZ(-2deg);transform:translateY(0) rotateZ(-2deg);opacity:.5}66%{-webkit-transform:translateY(.3125em) rotateZ(2deg);transform:translateY(.3125em) rotateZ(2deg);opacity:.7}100%{-webkit-transform:translateY(0) rotateZ(0);transform:translateY(0) rotateZ(0);opacity:1}}@-webkit-keyframes hideSweetToast{0%{opacity:1}33%{opacity:.5}100%{-webkit-transform:rotateZ(1deg);transform:rotateZ(1deg);opacity:0}}@keyframes hideSweetToast{0%{opacity:1}33%{opacity:.5}100%{-webkit-transform:rotateZ(1deg);transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes animate-toast-success-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes animate-toast-success-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes animate-toast-success-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes animate-toast-success-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-shown{top:auto;right:auto;bottom:auto;left:auto;background-color:transparent}body.swal2-no-backdrop .swal2-shown>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-shown.swal2-top{top:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-top-left,body.swal2-no-backdrop .swal2-shown.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-shown.swal2-top-end,body.swal2-no-backdrop .swal2-shown.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-shown.swal2-center{top:50%;left:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-shown.swal2-center-left,body.swal2-no-backdrop .swal2-shown.swal2-center-start{top:50%;left:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-center-end,body.swal2-no-backdrop .swal2-shown.swal2-center-right{top:50%;right:0;-webkit-transform:translateY(-50%);transform:translateY(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-bottom{bottom:0;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%)}body.swal2-no-backdrop .swal2-shown.swal2-bottom-left,body.swal2-no-backdrop .swal2-shown.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-shown.swal2-bottom-end,body.swal2-no-backdrop .swal2-shown.swal2-bottom-right{right:0;bottom:0}.swal2-container{display:flex;position:fixed;top:0;right:0;bottom:0;left:0;flex-direction:row;align-items:center;justify-content:center;padding:10px;background-color:transparent;z-index:1060;overflow-x:hidden;-webkit-overflow-scrolling:touch}.swal2-container.swal2-top{align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{align-items:flex-start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{align-items:flex-start;justify-content:flex-end}.swal2-container.swal2-center{align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{align-items:center;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{align-items:center;justify-content:flex-end}.swal2-container.swal2-bottom{align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{align-items:flex-end;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{align-items:flex-end;justify-content:flex-end}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:flex!important;flex:1;align-self:stretch;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-grow-column{flex:1;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-container.swal2-fade{transition:background-color .1s}.swal2-container.swal2-shown{background-color:rgba(0,0,0,.4)}.swal2-popup{display:none;position:relative;flex-direction:column;justify-content:center;width:32em;max-width:100%;padding:1.25em;border-radius:.3125em;background:#fff;font-family:inherit;font-size:1rem;box-sizing:border-box}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-popup .swal2-header{display:flex;flex-direction:column;align-items:center}.swal2-popup .swal2-title{display:block;position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-popup .swal2-actions{flex-wrap:wrap;align-items:center;justify-content:center;margin:1.25em auto 0;z-index:1}.swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-popup .swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-popup .swal2-actions.swal2-loading .swal2-styled.swal2-confirm{width:2.5em;height:2.5em;margin:.46875em;padding:0;border:.25em solid transparent;border-radius:100%;border-color:transparent;background-color:transparent!important;color:transparent;cursor:default;box-sizing:border-box;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-popup .swal2-actions.swal2-loading .swal2-styled.swal2-cancel{margin-right:30px;margin-left:30px}.swal2-popup .swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after{display:inline-block;width:15px;height:15px;margin-left:5px;border:3px solid #999;border-radius:50%;border-right-color:transparent;box-shadow:1px 1px 1px #fff;content:'';-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal}.swal2-popup .swal2-styled{margin:.3125em;padding:.625em 2em;font-weight:500;box-shadow:none}.swal2-popup .swal2-styled:not([disabled]){cursor:pointer}.swal2-popup .swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#3085d6;color:#fff;font-size:1.0625em}.swal2-popup .swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#aaa;color:#fff;font-size:1.0625em}.swal2-popup .swal2-styled:focus{outline:0;box-shadow:0 0 0 2px #fff,0 0 0 4px rgba(50,100,150,.4)}.swal2-popup .swal2-styled::-moz-focus-inner{border:0}.swal2-popup .swal2-footer{justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-popup .swal2-image{max-width:100%;margin:1.25em auto}.swal2-popup .swal2-close{position:absolute;top:0;right:0;justify-content:center;width:1.2em;height:1.2em;padding:0;transition:color .1s ease-out;border:none;border-radius:0;outline:initial;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer;overflow:hidden}.swal2-popup .swal2-close:hover{-webkit-transform:none;transform:none;color:#f27474}.swal2-popup>.swal2-checkbox,.swal2-popup>.swal2-file,.swal2-popup>.swal2-input,.swal2-popup>.swal2-radio,.swal2-popup>.swal2-select,.swal2-popup>.swal2-textarea{display:none}.swal2-popup .swal2-content{justify-content:center;margin:0;padding:0;color:#545454;font-size:1.125em;font-weight:300;line-height:normal;z-index:1;word-wrap:break-word}.swal2-popup #swal2-content{text-align:center}.swal2-popup .swal2-checkbox,.swal2-popup .swal2-file,.swal2-popup .swal2-input,.swal2-popup .swal2-radio,.swal2-popup .swal2-select,.swal2-popup .swal2-textarea{margin:1em auto}.swal2-popup .swal2-file,.swal2-popup .swal2-input,.swal2-popup .swal2-textarea{width:100%;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;font-size:1.125em;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);box-sizing:border-box}.swal2-popup .swal2-file.swal2-inputerror,.swal2-popup .swal2-input.swal2-inputerror,.swal2-popup .swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-popup .swal2-file:focus,.swal2-popup .swal2-input:focus,.swal2-popup .swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 3px #c4e6f5}.swal2-popup .swal2-file::-webkit-input-placeholder,.swal2-popup .swal2-input::-webkit-input-placeholder,.swal2-popup .swal2-textarea::-webkit-input-placeholder{color:#ccc}.swal2-popup .swal2-file:-ms-input-placeholder,.swal2-popup .swal2-input:-ms-input-placeholder,.swal2-popup .swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-popup .swal2-file::-ms-input-placeholder,.swal2-popup .swal2-input::-ms-input-placeholder,.swal2-popup .swal2-textarea::-ms-input-placeholder{color:#ccc}.swal2-popup .swal2-file::placeholder,.swal2-popup .swal2-input::placeholder,.swal2-popup .swal2-textarea::placeholder{color:#ccc}.swal2-popup .swal2-range input{width:80%}.swal2-popup .swal2-range output{width:20%;font-weight:600;text-align:center}.swal2-popup .swal2-range input,.swal2-popup .swal2-range output{height:2.625em;margin:1em auto;padding:0;font-size:1.125em;line-height:2.625em}.swal2-popup .swal2-input{height:2.625em;padding:0 .75em}.swal2-popup .swal2-input[type=number]{max-width:10em}.swal2-popup .swal2-file{font-size:1.125em}.swal2-popup .swal2-textarea{height:6.75em;padding:.75em}.swal2-popup .swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;color:#545454;font-size:1.125em}.swal2-popup .swal2-checkbox,.swal2-popup .swal2-radio{align-items:center;justify-content:center}.swal2-popup .swal2-checkbox label,.swal2-popup .swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-popup .swal2-checkbox input,.swal2-popup .swal2-radio input{margin:0 .4em}.swal2-popup .swal2-validation-message{display:none;align-items:center;justify-content:center;padding:.625em;background:#f0f0f0;color:#666;font-size:1em;font-weight:300;overflow:hidden}.swal2-popup .swal2-validation-message::before{display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center;content:'!';zoom:normal}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-moz-document url-prefix(){.swal2-close:focus{outline:2px solid rgba(50,100,150,.4)}}.swal2-icon{position:relative;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;border:.25em solid transparent;border-radius:50%;line-height:5em;cursor:default;box-sizing:content-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;zoom:normal}.swal2-icon-text{font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-success{border-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;-webkit-transform:rotate(45deg);transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:3.75em 3.75em;transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 3.75em;transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;top:-.25em;left:-.25em;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%;z-index:2;box-sizing:content-box}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;top:.5em;left:1.625em;width:.4375em;height:5.625em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);z-index:1}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;height:.3125em;border-radius:.125em;background-color:#a5dc86;z-index:2}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.875em;width:1.5625em;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}.swal2-progresssteps{align-items:center;margin:0 0 1.25em;padding:0;font-weight:600}.swal2-progresssteps li{display:inline-block;position:relative}.swal2-progresssteps .swal2-progresscircle{width:2em;height:2em;border-radius:2em;background:#3085d6;color:#fff;line-height:2em;text-align:center;z-index:20}.swal2-progresssteps .swal2-progresscircle:first-child{margin-left:0}.swal2-progresssteps .swal2-progresscircle:last-child{margin-right:0}.swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep{background:#3085d6}.swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep~.swal2-progresscircle{background:#add8e6}.swal2-progresssteps .swal2-progresscircle.swal2-activeprogressstep~.swal2-progressline{background:#add8e6}.swal2-progresssteps .swal2-progressline{width:2.5em;height:.4em;margin:0 -1px;background:#3085d6;z-index:10}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-show.swal2-noanimation{-webkit-animation:none;animation:none}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-hide.swal2-noanimation{-webkit-animation:none;animation:none}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-animate-success-icon .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-animate-success-icon .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-animate-success-icon .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-animate-error-icon{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-animate-error-icon .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}@-webkit-keyframes swal2-rotate-loading{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:initial!important}}</style></head>
+<body>
+    
+
+    <input type="hidden" name="_csrf" value="4083ffe8-1c21-4464-b668-ea500213d9e5">
+	<input type="hidden" name="_csrf_header" value="X-CSRF-TOKEN">
+	
+	<header class="l-header">
+		<div class="o-container">
+
+			<nav class="l-main-nav">
+				<div class="l-main-nav__logo">
+                    <a href="https://app.algaworks.com/meus-cursos/">
+                        <img src="./Web Services_files/logo-algaworks-branca-c501cc137703d6338989f01840cf2b94.png" width="145" height="30" alt="AlgaWorks">
+                    </a>
+				</div>
+
+                
+
+                <div class="l-main-nav__menu">
+
+                    <div class="c-user-dropdown js-user-dropdown">
+                        <a href="javascript:;" class="js-user-dropdown-toggle c-user-dropdown__toggle">
+                            <img src="./Web Services_files/53bf840f2fe9dd6c88abb9c4278c8df7.png" class="c-user-dropdown__avatar" alt="ARISTEZIO DE SOUZA MARINHO">
+                        </a>
+                        <div class="js-user-dropdown-box c-user-dropdown__menu-box">
+                            <div class="c-user-dropdown__user">
+                                <span class="c-user-dropdown__user-name">ARISTEZIO DE SOUZA MARINHO</span>
+                                <span class="c-user-dropdown__user-email">aristeziode@uol.com.br</span>
+                            </div>
+
+                            <ul class="c-user-dropdown__menu-list">
+                                <li class="c-user-dropdown__menu-item">
+                                    <a href="https://app.algaworks.com/meus-cursos">Meus cursos</a>
+                                </li>
+                                <li class="c-user-dropdown__menu-item">
+                                    <a href="https://www.algaworks.com/">Comprar cursos</a>
+                                </li>
+                                <li class="c-user-dropdown__menu-item">
+                                    <a href="https://app.algaworks.com/minha-conta">Minha conta</a>
+                                </li>
+
+                                
+                                <li class="c-user-dropdown__menu-item">
+                                    <a href="https://app.algaworks.com/logout">Sair</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+			</nav>
+		</div>
+	</header>
+
+    <div style="right: 100px; position: absolute">
+
+    </div>
+
+
+	
+
+    <section class="l-course-headline">
+        <div class="o-container">
+            <h1 class="l-course-headline__title">Começando com Web Services RESTful e Spring</h1>
+
+            <h2 class="l-course-headline__instructors">
+                por
+
+                
+                    Junior
+
+                    
+
+                    
+                
+            </h2>
+
+            <div class="l-course-headline__progress">
+                <div class="c-progress-bar">
+                    <div class="c-progress-bar__value" style="width: 24%"></div>
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+
+    <div class="l-course-content">
+        <div class="o-container">
+            <div class="l-course-content__content  js-course-page">
+
+                <input id="course_id" type="hidden" value="57">
+
+                <div class="c-accordion  js-accordion">
+                    <ul class="c-accordion__tabs">
+                        <li class="c-accordion__tab   js-accordion-tab   is-active" data-accordion-pane-id="tab-curriculum">
+                            <a href="javascript:void(0)">Conteúdo programático</a>
+                        </li>
+
+                        <li class="c-accordion__tab   js-accordion-tab" data-accordion-pane-id="tab-forum">
+                            <a href="javascript:void(0)">Fórum e suporte</a>
+                        </li>
+                    </ul>
+
+                    <div class="c-accordion__pane   is-active" id="tab-curriculum">
+                        
+
+
+    
+        <ol class="c-course-curriculum  js-accordion-group">
+            <li class="c-course-curriculum__chapter">
+
+                <a class="c-course-curriculum__chapter-container  js-accordion-group-toggle" href="javascript:void(0)">
+                    <h3 class="c-course-curriculum__chapter-name">Introdução</h3>
+                </a>
+
+                <ol class="c-course-curriculum__lessons  js-accordion-group-content" style="display: block;">
+                    <li class="c-course-curriculum__lesson c-course-curriculum__lesson--completed ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/795/introducao-ao-workshop">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Introdução ao Workshop</span>
+                            <span class="c-course-curriculum__lesson-duration">10m 9s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson c-course-curriculum__lesson--completed ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/796/introducao-ao-rest">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Introdução ao REST</span>
+                            <span class="c-course-curriculum__lesson-duration">19m 14s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson c-course-curriculum__lesson--completed ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/797/introducao-ao-protocolo-http">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Introdução ao protocolo HTTP</span>
+                            <span class="c-course-curriculum__lesson-duration">20m 42s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson c-course-curriculum__lesson--completed ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/798/metodos-e-respostas-http">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Métodos e Respostas HTTP</span>
+                            <span class="c-course-curriculum__lesson-duration">7m 35s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson c-course-curriculum__lesson--completed ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/799/representacoes-e-o-formato-json">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Representações e o formato JSON</span>
+                            <span class="c-course-curriculum__lesson-duration">16m 3s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson c-course-curriculum__lesson--completed ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/800/modelo-de-maturidade-richardson">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Modelo de maturidade Richardson</span>
+                            <span class="c-course-curriculum__lesson-duration">18m 45s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson c-course-curriculum__lesson--completed ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/801/ambiente-de-desenvolvimento">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Ambiente de Desenvolvimento</span>
+                            <span class="c-course-curriculum__lesson-duration">11m 2s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson c-course-curriculum__lesson--completed ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/802/introducao-ao-maven">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Introdução ao Maven</span>
+                            <span class="c-course-curriculum__lesson-duration">6m 13s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson c-course-curriculum__lesson--completed ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/803/spring-boot">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Spring Boot</span>
+                            <span class="c-course-curriculum__lesson-duration">8m 31s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson c-course-curriculum__lesson--completed ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/804/apis-restful-com-spring-mvc">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">APIs RESTful com Spring MVC</span>
+                            <span class="c-course-curriculum__lesson-duration">6m 16s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/805/introducao-ao-postman">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Introdução ao Postman</span>
+                            <span class="c-course-curriculum__lesson-duration">8m 15s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/806/conhecendo-o-projeto-do-workshop">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Conhecendo o projeto do Workshop</span>
+                            <span class="c-course-curriculum__lesson-duration">11m 57s</span>
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <li class="c-course-curriculum__chapter">
+
+                <a class="c-course-curriculum__chapter-container  js-accordion-group-toggle" href="javascript:void(0)">
+                    <h3 class="c-course-curriculum__chapter-name">Criando uma API RESTful</h3>
+                </a>
+
+                <ol class="c-course-curriculum__lessons  js-accordion-group-content">
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/807/criando-o-projeto">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Criando o projeto</span>
+                            <span class="c-course-curriculum__lesson-duration">14m 53s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/808/modelando-nosso-primeiro-recurso">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Modelando nosso primeiro recurso</span>
+                            <span class="c-course-curriculum__lesson-duration">8m 28s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/809/criando-uma-representacao-para-o-recurso-livro">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Criando uma representação para o recurso Livro</span>
+                            <span class="c-course-curriculum__lesson-duration">9m 33s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/810/utilizando-a-anotacao-jsoninclude">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Utilizando a anotação @JsonInclude</span>
+                            <span class="c-course-curriculum__lesson-duration">3m 29s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/811/interagindo-com-o-banco-de-dados">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Interagindo com o banco de dados</span>
+                            <span class="c-course-curriculum__lesson-duration">13m 19s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/812/salvando-o-recurso-livro-a-partir-de-um-post">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Salvando o recurso Livro a partir de um POST</span>
+                            <span class="c-course-curriculum__lesson-duration">10m 45s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/813/buscando-um-livro-com-o-uso-da-anotacao-pathvariable">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Buscando um livro com o uso da anotação @PathVariable</span>
+                            <span class="c-course-curriculum__lesson-duration">5m 35s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/814/deletando-o-recurso-livro-com-o-delete">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Deletando o recurso Livro com o DELETE</span>
+                            <span class="c-course-curriculum__lesson-duration">5m 16s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/815/put-para-atualizar-o-recurso-livro">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">PUT para atualizar o recurso Livro</span>
+                            <span class="c-course-curriculum__lesson-duration">5m 37s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/816/tratamento-correto-das-respostas-http-404-e-201">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Tratamento correto das respostas HTTP 404 e 201</span>
+                            <span class="c-course-curriculum__lesson-duration">16m 21s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/817/finalizando-o-tratamento-das-respostas">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Finalizando o tratamento das respostas</span>
+                            <span class="c-course-curriculum__lesson-duration">8m 54s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/818/melhorando-o-design-do-nosso-codigo">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Melhorando o design do nosso código</span>
+                            <span class="c-course-curriculum__lesson-duration">19m 7s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/819/manipulando-erros-com-exceptionhandler-e-controlleradvice">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Manipulando erros com @ExceptionHandler e @ControllerAdvice</span>
+                            <span class="c-course-curriculum__lesson-duration">13m 18s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/820/adicionando-comentarios-ao-recurso-livro">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Adicionando comentários ao recurso Livro</span>
+                            <span class="c-course-curriculum__lesson-duration">21m 53s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/821/listando-os-comentarios-do-recurso-livro">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Listando os comentários do recurso Livro</span>
+                            <span class="c-course-curriculum__lesson-duration">6m 53s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/822/adicionando-o-recurso-autor-a-nossa-api">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Adicionando o recurso Autor à nossa API</span>
+                            <span class="c-course-curriculum__lesson-duration">14m 24s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/823/evoluindo-nosso-recurso-autor">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Evoluindo nosso recurso Autor</span>
+                            <span class="c-course-curriculum__lesson-duration">18m 36s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/824/testando-nossos-recursos-e-formatando-nossas-representacoes-json">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Testando nossos recursos e formatando nossas representações JSON</span>
+                            <span class="c-course-curriculum__lesson-duration">16m 25s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/825/validando-as-entradas-na-nossa-api">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Validando as entradas na nossa API</span>
+                            <span class="c-course-curriculum__lesson-duration">16m 26s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/826/negociacao-de-conteudos-com-media-type">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Negociação de conteúdos com Media Type</span>
+                            <span class="c-course-curriculum__lesson-duration">10m 14s</span>
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <li class="c-course-curriculum__chapter">
+
+                <a class="c-course-curriculum__chapter-container  js-accordion-group-toggle" href="javascript:void(0)">
+                    <h3 class="c-course-curriculum__chapter-name">Refinando a API</h3>
+                </a>
+
+                <ol class="c-course-curriculum__lessons  js-accordion-group-content">
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/827/adicionando-cache">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Adicionando cache</span>
+                            <span class="c-course-curriculum__lesson-duration">10m 2s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/828/autenticacao-com-spring-security">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Autenticação com Spring Security</span>
+                            <span class="c-course-curriculum__lesson-duration">19m 17s</span>
+                        </a>
+                    </li>
+                </ol>
+            </li>
+            <li class="c-course-curriculum__chapter">
+
+                <a class="c-course-curriculum__chapter-container  js-accordion-group-toggle" href="javascript:void(0)">
+                    <h3 class="c-course-curriculum__chapter-name">Consumindo nossa API</h3>
+                </a>
+
+                <ol class="c-course-curriculum__lessons  js-accordion-group-content">
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/829/automatizando-testes-com-postman">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Automatizando testes com Postman</span>
+                            <span class="c-course-curriculum__lesson-duration">13m 23s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/830/cliente-java">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Cliente Java</span>
+                            <span class="c-course-curriculum__lesson-duration">16m 5s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/831/evoluindo-nosso-cliente-java">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Evoluindo nosso cliente Java</span>
+                            <span class="c-course-curriculum__lesson-duration">15m 5s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/832/finalizando-nosso-cliente-java">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Finalizando nosso cliente Java</span>
+                            <span class="c-course-curriculum__lesson-duration">14m 2s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/833/cliente-javascript">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Cliente JavaScript</span>
+                            <span class="c-course-curriculum__lesson-duration">25m 17s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/834/cross-origin-resource-sharing-cors">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Cross-Origin Resource Sharing (CORS)</span>
+                            <span class="c-course-curriculum__lesson-duration">10m 10s</span>
+                        </a>
+                    </li>
+                    <li class="c-course-curriculum__lesson  ">
+                        <a class="c-course-curriculum__lesson-container" href="https://app.algaworks.com/aulas/835/conclusao">
+                            <span class="c-course-curriculum__status"></span>
+                            <span class="c-course-curriculum__lesson-name">Conclusão</span>
+                            <span class="c-course-curriculum__lesson-duration">7m 14s</span>
+                        </a>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+    
+
+
+
+                    </div>
+
+                    <div class="c-accordion__pane" id="tab-forum">
+                        
+
+
+    <link rel="stylesheet" href="./Web Services_files/nprogress-9dc52b7dd289312c1437a3e66ca7662c.css">
+    <title>AlgaWorks - Suporte</title>
+
+
+    
+
+    <div class="c-predicate-container js-predicates-list">
+        <span class="c-predicate-container__item  c-predicate-container__item--default  js-predicate-item-default">
+            <span class="c-predicate-container__item-content">
+                Todas as perguntas
+            </span>
+        </span>
+
+        <div class="c-dropdown js-dropdown">
+            <a href="javascript:void(0)" class="c-dropdown__filter-link js-filter-dialog-link">Adicionar filtro</a>
+
+            <div class="c-dropdown__popup js-filter-dialog" tabindex="-1">
+                <ul class="c-dropdown__menu-list">
+                    <li class="c-dropdown__menu-list__item  c-dropdown__menu-list__item--group js-item-group">
+                        <a class="c-dropdown__menu-list__content" href="javascript:void(0)">Quando foi enviada</a>
+
+                        <ul class="c-dropdown__menu-list__sub-list">
+                            <li class="c-dropdown__menu-list__sub-item">
+                                <a data-filter-value="pergunta-hoje" data-filter-title="Pergunta feita hoje" class="c-dropdown__menu-list__content js-filter-value" href="javascript:void(0)">Hoje</a>
+                            </li>
+
+                            <li class="c-dropdown__menu-list__sub-item">
+                                <a data-filter-value="pergunta-ontem" data-filter-title="Pergunta feita ontem" class="c-dropdown__menu-list__content js-filter-value" href="javascript:void(0)">Ontem</a>
+                            </li>
+
+                            <li class="c-dropdown__menu-list__sub-item">
+                                <a data-filter-value="pergunta-ultimos-7-dias" data-filter-title="Pergunta feita nos últimos 7 dias" class="c-dropdown__menu-list__content js-filter-value" href="javascript:void(0)">Últimos 7 dias</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="c-dropdown__menu-list__item  c-dropdown__menu-list__item--group js-item-group">
+                        <a class="c-dropdown__menu-list__content" href="javascript:void(0)">Perguntas que eu acompanho</a>
+
+                        <ul class="c-dropdown__menu-list__sub-list">
+                            <li class="c-dropdown__menu-list__sub-item">
+                                <a data-filter-value="respondida-por-mim" data-filter-title="Respondida por mim" class="c-dropdown__menu-list__content js-filter-value" href="javascript:void(0)">Respondida por mim</a>
+                            </li>
+
+                            <li class="c-dropdown__menu-list__sub-item">
+                                <a data-filter-value="enviada-por-mim" data-filter-title="Enviada por mim" class="c-dropdown__menu-list__content js-filter-value" href="javascript:void(0)">Enviada por mim</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="c-dropdown__menu-list__item  c-dropdown__menu-list__item--group js-item-group">
+                        <a class="c-dropdown__menu-list__content" href="javascript:void(0)">Quando houve a última interação</a>
+
+                        <ul class="c-dropdown__menu-list__sub-list">
+                            <li class="c-dropdown__menu-list__sub-item">
+                                <a data-filter-value="ultima-interacao-hoje" data-filter-title="Última interação hoje" class="c-dropdown__menu-list__content js-filter-value" href="javascript:void(0)">Hoje</a>
+                            </li>
+
+                            <li class="c-dropdown__menu-list__sub-item">
+                                <a data-filter-value="ultima-interacao-ontem" data-filter-title="Última interação ontem" class="c-dropdown__menu-list__content js-filter-value" href="javascript:void(0)">Ontem</a>
+                            </li>
+
+                            <li class="c-dropdown__menu-list__sub-item">
+                                <a data-filter-value="ultima-interacao-7-dias" data-filter-title="Última interação há 7 dias" class="c-dropdown__menu-list__content js-filter-value" href="javascript:void(0)">Últimos
+                                    7 dias</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="c-dropdown__menu-list__item  c-dropdown__menu-list__item--group js-item-group">
+                        <a class="c-dropdown__menu-list__content" href="javascript:void(0)">Qual é a situação atual</a>
+
+                        <ul class="c-dropdown__menu-list__sub-list">
+                            <li class="c-dropdown__menu-list__sub-item">
+                                <a data-filter-value="resolvida" data-filter-title="Pergunta resolvida" class="c-dropdown__menu-list__content js-filter-value" href="javascript:void(0)">Resolvida</a>
+                            </li>
+
+                            <li class="c-dropdown__menu-list__sub-item">
+                                <a data-filter-value="aberta" class="c-dropdown__menu-list__content js-filter-value" data-filter-title="Pergunta não resovida" href="javascript:void(0)">Aberta</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    
+
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="c-forum-questions  c-forum-questions--larger js-forum-questions-list"></div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+	<footer class="l-footer" itemscope="itemscope" itemtype="http://schema.org/EducationalOrganization">
+		<div class="l-footer__container">
+			
+			<div class="l-footer__columns">
+			
+				<div class="l-footer__company-column">
+					<span class="l-footer__column-title" itemprop="name">AlgaWorks</span>
+					
+					<ul class="l-footer__menu-list">
+						<li class="l-footer__menu-item">
+							<a href="https://www.algaworks.com/sobre-nos">Sobre nós</a>
+						</li>
+						<li class="l-footer__menu-item">
+							<a href="http://blog.algaworks.com/" target="_blank">Nosso blog</a>
+						</li>
+						<li class="l-footer__menu-item">
+							<a href="https://algaworks.recruiterbox.com/" target="_blank" rel="external">Trabalhe com a gente</a>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="l-footer__social-column">
+					<span class="l-footer__column-title">Fique conectado</span>
+					
+					<ul class="l-footer__social-list">
+						<li class="l-footer__social-media  l-footer__social-media--facebook"><a href="https://www.facebook.com/algaworks" target="_blank" title="Siga a gente no Facebook"></a></li>
+                        <li class="l-footer__social-media  l-footer__social-media--instagram"><a href="https://www.instagram.com/alga.works/" target="_blank" title="Siga a gente no Instagram"></a></li>
+						<li class="l-footer__social-media  l-footer__social-media--youtube"><a href="https://www.youtube.com/subscription_center?add_user=algaworks" target="_blank" title="Assine nosso canal do YouTube"></a></li>
+						<li class="l-footer__social-media  l-footer__social-media--linkedin"><a href="https://www.linkedin.com/company/algaworks" target="_blank" title="Siga a gente no LinkedIn"></a></li>
+						<li class="l-footer__social-media  l-footer__social-media--twitter"><a href="https://twitter.com/algaworks" target="_blank" title="Siga a gente no Twitter"></a></li>
+					</ul>
+				</div>
+			
+				<div class="l-footer__contact-column">
+					<ul class="l-footer__contact-list">
+
+                        <li class="l-footer__contact-item  l-footer__contact-item--whatsapp">
+                            <a href="https://api.whatsapp.com/send?1=pt_BR&amp;phone=5534999955046" target="_blank">(34) 99995-5046</a>
+                        </li>
+						<li class="l-footer__contact-item  l-footer__contact-item--email">
+                            <a href="mailto:contato@algaworks.com" itemprop="email">contato@algaworks.com</a>
+                        </li>
+					</ul>
+				</div>
+			
+			</div>
+			
+			<div class="l-footer__legal">
+				<span itemprop="legalName">AlgaWorks Softwares, Treinamentos e Serviços Ltda</span><br>
+				CNPJ: <span itemprop="taxID">10.687.566/0001-97</span>
+			</div>
+			
+			<div class="l-footer__copyright">
+				© 2017 AlgaWorks. Todos os direitos reservados. Leia nossa
+                <a href="https://www.algaworks.com/privacidade" target="_blank">Política de privacidade</a>
+                e <a href="https://www.algaworks.com/termos" target="_blank">Termos de uso</a>.
+			</div>
+		</div>
+	</footer>
+
+    <script src="./Web Services_files/jquery.min-dc5e7f18c8d36ac1d3d4753a87c98d0a.js.download"></script>
+
+    <script src="./Web Services_files/aw.min-98785494919f466a4a75ee85cb7a4d5b.js.download"></script>
+
+    
+    <script src="./Web Services_files/highlight.pack.min-b783f3d2db0d817811dfbb75084efc8f.js.download"></script>
+    <script src="./Web Services_files/player.min-ef5b1ce42f0c4469bc94f828bd3b1732.js.download"></script>
+    <script src="./Web Services_files/sweetalert2.all.min-3bb7c2ebac19577088c2c5a5a32fe8c7.js.download"></script>
+    <script src="./Web Services_files/linkify.min-6e8f00aab46678c5f157427b39fe8091.js.download"></script>
+    <script src="./Web Services_files/linkify-jquery.min-22cf4f1c27bfe2adea1fa2f936d62038.js.download"></script>
+    <script src="./Web Services_files/moment.min-5c158b940513c7dc2ebd901455e9b63d.js.download"></script>
+    <script src="./Web Services_files/nprogress-5fc208df77427b19a1558ee3c2e2d344.js.download"></script>
+
+    <script src="./Web Services_files/aw-courses.min-d6b8d701d9a0737b2011e10fed713f8a.js.download"></script>
+
+
+    <!-- Infusionsoft Tracking Code -->
+<script type="text/javascript" src="./Web Services_files/getTrackingCode"></script>
+
+
+
+<!-- Popup Domination -->
+<script src="./Web Services_files/BkU2IOWcm.js.download"></script>
+
+<!-- Pingdom -->
+<script src="./Web Services_files/pa-5c40a057cea07b001600085e.js.download" async=""></script>
+
+<!-- Linkedin Rmkt -->
+<script type="text/javascript">
+_linkedin_partner_id = "290401";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=290401&fmt=gif" />
+</noscript>
+
+<!-- begin whatsapp code -->
+<link rel="stylesheet" href="./Web Services_files/font-awesome.min.css">
+<a id="whatsapp-bubble" href="https://wa.me/5534999955046?text" style="position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: rgb(37, 211, 102); color: rgb(255, 255, 255); border-radius: 50px; text-align: center; font-size: 30px; box-shadow: rgb(136, 136, 136) 1px 1px 2px; z-index: 1000; display: none;" target="_blank">
+<i style="margin-top:16px" class="fa fa-whatsapp"></i>
+</a>
+<script>
+var path = window.location.pathname;
+if (path.startsWith("/certs/") || path.startsWith("/meus-cursos/") || path.startsWith("/aulas/") || path.startsWith("/forum/") ){
+  document.getElementById("whatsapp-bubble").style.display = 'none';
+}
+else {
+   document.getElementById("whatsapp-bubble").style.display = 'block';
+}
+</script>
+<!-- end whatsapp code -->
+
+<script>
+// Altera para o novo numero do WhatsApp temporariamente
+$('.l-footer__contact-item--whatsapp a').text('(34) 99995-5046');
+$('.l-footer__contact-item--whatsapp a').attr('href', 'https://api.whatsapp.com/send?1=pt_BR&phone=5534999955046');
+</script>
+
+
+</body></html>
