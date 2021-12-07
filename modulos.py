@@ -11,7 +11,10 @@ chapter_index = int(chapter_index) - 1
 
 # Web Scraping 
 
-with open ('react.html',encoding='utf8') as html_file:
+course = './courses/react.html'
+
+
+with open (course,encoding='utf8') as html_file:
     content = html_file.read()
 
     soup = bs(content,'lxml')
